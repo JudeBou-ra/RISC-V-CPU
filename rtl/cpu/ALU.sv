@@ -1,15 +1,3 @@
-// Guided starting point for a combinational integer ALU.
-//
-// Suggested order:
-// 1. Read the RV32I definitions for each operation below.
-// 2. Implement one case arm at a time; keep the default assignment so every
-//    path has a defined result.
-// 3. Test arithmetic, logical, shift, and signed/unsigned comparison cases.
-// 4. Connect the decoder's operation encoding to alu_op_i. If the decoder
-//    lives in another module, consider moving the encoding into a shared
-//    package rather than duplicating numeric values.
-//
-// This scaffold intentionally leaves the datapath operations unimplemented.
 `timescale 1ns/1ps
 module ALU #(
     parameter int WIDTH = 32
@@ -101,8 +89,6 @@ module ALU #(
             end
         endcase
 
-        // TODO: Confirm this flag has the meaning your branch/control logic
-        //       expects. It reports whether the ALU result is zero.
         zero_o = (result_o == '0);
     end
 
