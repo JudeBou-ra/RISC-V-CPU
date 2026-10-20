@@ -42,15 +42,15 @@ module control_unit(
 
     always_comb begin
         // initially sets everything to 0 to stop unknown behavior
-        alu_src_pc_o  = 1'b0;
+        alu_src_pc_o = 1'b0;
         alu_src_imm_o = 1'b0;
-        alu_op_o      = ALU_ADD;
-        branch_o      = 1'b0;
-        jump_o        = 1'b0;
-        mem_read_o    = 1'b0;
-        mem_write_o   = 1'b0;
-        reg_write_o   = 1'b0;
-        wb_sel_o      = 2'b00;
+        alu_op_o = ALU_ADD;
+        branch_o = 1'b0;
+        jump_o = 1'b0;
+        mem_read_o = 1'b0;
+        mem_write_o = 1'b0;
+        reg_write_o = 1'b0;
+        wb_sel_o = 2'b00;
 
         case (opcode_i) // initializes for cases
             OP_REG, OP_IMM: begin // if its the opcode for OP_REG or OP_IMM, use this branch
