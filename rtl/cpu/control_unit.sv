@@ -9,7 +9,7 @@ module control_unit(
     output logic alu_src_pc_o,   // Use PC as ALU input A (AUIPC/JAL target)
     output logic alu_src_imm_o,  // Use immediate as ALU input B
     output logic [3:0] alu_op_o,
-    output logic branch_o,       // Conditional branch; funct3 selects condition
+    output logic branch_o,       // Conditional branch, funct3 selects condition
     output logic jump_o,         // JAL/JALR redirect the PC
     output logic mem_read_o,     // Read data memory (MEM stage)
     output logic mem_write_o,    // Write data memory (MEM stage)
