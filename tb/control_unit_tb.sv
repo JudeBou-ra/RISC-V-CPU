@@ -90,7 +90,6 @@ module control_unit_tb;
     );
 
     // used as a test formatter, easy so you don't have to keep writing tests
-    // drive inputs, wait for combinational logic, compare actual and expected.
     task automatic check_control(
         input string test_name,
         input logic [6:0] opcode, // Identifies instruction category
@@ -120,9 +119,7 @@ module control_unit_tb;
         end
     endtask
 
-    // control bundle. When you add an instruction to the DUT, add a case here
     initial begin
-        // Start with a known instruction before the first check
         opcode_i = '0;
         funct3_i = '0;
         funct7_i = '0;
@@ -145,7 +142,7 @@ module control_unit_tb;
         check_control("SRLI",  OP_IMM, 3'b101, 7'b0000000, CTRL_I_SRL);
         check_control("SRAI",  OP_IMM, 3'b101, 7'b0100000, CTRL_I_SRA);
 
-        // Memory operations choose immediate addressing; loads write back data
+        // Memory operations choose immediate addressing, and loads write back data
         check_control("LW", OP_LOAD, 3'b010, 7'b0000000, CTRL_LOAD);
         check_control("SW", OP_STORE, 3'b010, 7'b0000000, CTRL_STORE);
 
