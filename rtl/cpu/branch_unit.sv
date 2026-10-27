@@ -12,8 +12,8 @@ module branch_unit (
 always_comb begin 
     branch_cond = 1'b0;
 
-    if (branch_o) begin
-        case (funct3_o) 
+    if (branch_i) begin
+        case (funct3_i)
             3'b000: branch_cond = (rs1_i == rs2_i); // BEQ (Branch equal)
             3'b001: branch_cond = (rs1_i != rs2_i); // BNE (Branch Not Equal)
             3'b100: branch_cond = ($signed(rs1_i) < $signed(rs2_i)); // BLT (Branch Less Than)
